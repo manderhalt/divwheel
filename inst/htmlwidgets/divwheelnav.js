@@ -84,7 +84,9 @@ HTMLWidgets.widget({
           chart.navItems[i].titleRotateAngle = -(360/list_logos.lenght)*i;
         }
         subchart.initWheel(subwheeldata);
-        
+        chart.navItems[0].navigateFunction = function() { 
+          alert('Hello wheel')
+        }
         chart.createWheel();
         subchart.createWheel();
         
