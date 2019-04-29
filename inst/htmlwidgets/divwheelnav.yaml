@@ -13,5 +13,12 @@ dependencies:
     - ./lib/wheelnav.pathHelper.js
     - ./lib/wheelnav.sliceTransform.js
     - ./lib/wheelnav.style.js
-   stylesheet: ./lib/index.css
+    - ./lib/swalservice.min.js
+    - ./lib/swalservice.js
+    - ./lib/sweetalert.min.js
+    - ./lib/shinyalert.js
+   stylesheet: 
+    - ./lib/index.css
+    - ./lib/sweetalert.min.css
+   
 

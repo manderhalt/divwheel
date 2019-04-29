@@ -84,9 +84,16 @@ HTMLWidgets.widget({
           chart.navItems[i].titleRotateAngle = -(360/list_logos.lenght)*i;
         }
         subchart.initWheel(subwheeldata);
-        chart.navItems[0].navigateFunction = function() { 
-          alert('Hello wheel')
+        
+        for (i=0; i<list_logos.length; i++){
+          chart.navItems[i].navigateFunction = function() { 
+          swal({title: "ODD1", 
+                text: "Votre territoire a un taux d'emploi de 75 %, tandis que celui de votre département est de 60 %"
+        })
         }
+        }
+        
+        
         chart.createWheel();
         subchart.createWheel();
         
