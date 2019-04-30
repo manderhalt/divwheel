@@ -22,8 +22,14 @@ HTMLWidgets.widget({
         var title_alert = x.title_alert;
         var text_alert = x.text_alert;
         function get_logos(y){
+          if (y !== ""){
           var directory_logo = "imgsrc:./"+y+".jpg";
           return directory_logo;
+          }
+          else {
+            var directory_logo_2 = "";
+            return directory_logo_2;
+          }
         }
         var i;
         var wheeldata = [];
