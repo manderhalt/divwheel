@@ -86,15 +86,18 @@ HTMLWidgets.widget({
           chart.navItems[i].titleRotateAngle = -(360/list_logos.lenght)*i;
         }
         subchart.initWheel(subwheeldata);
-
+        function get_alert_function(title, text) {
+          return function(){
+            swal({title: title,
+                text: text
+        });
+          };
+        }
         for (i=0; i<list_logos.length; i++){
           var my_i = i;
-          chart.navItems[my_i].navigateFunction = function() {
-          swal({title: title_alert[my_i],
-                text: text_alert[my_i]
-        });
+          chart.navItems[my_i].navigateFunction = get_alert_function(title_alert[my_i], text_alert[my_i]);
         }
-        }
+
 
 
         chart.createWheel();
