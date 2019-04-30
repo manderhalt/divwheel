@@ -12,13 +12,15 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-        
-  
+
+
         // create a wheelnav and set options
         // note that via the c3.js API we bind the chart to the element with id equal to chart1
         var qa = x.question_answer;
         var list_logos = x.logos;
         var logos_colors = x.colors_logos;
+        var title_alert = x.title_alert;
+        var text_alert = x.text_alert;
         function get_logos(y){
           var directory_logo = "imgsrc:./"+y+".jpg";
           return directory_logo;
@@ -63,7 +65,7 @@ HTMLWidgets.widget({
         chart.clickModeRotate = false;
         chart.sliceTransformFunction  = sliceTransform().MoveMiddleTransform;
         chart.colors = logos_colors;
-        
+
         subchart.slicePathFunction = slicePath().DonutSlice;
         subchart.slicePathCustom = slicePath().DonutSliceCustomization();
         subchart.minRadius= chart.wheelRadius;
@@ -78,26 +80,27 @@ HTMLWidgets.widget({
         subchart.markerPathFunction = markerPath().PieLineMarker;
         subchart.markerEnable = true;
         subchart.colors = colorpalette;
-        
+
         chart.initWheel(wheeldata);
         for (i=0; i<list_logos.length; i++){
           chart.navItems[i].titleRotateAngle = -(360/list_logos.lenght)*i;
         }
         subchart.initWheel(subwheeldata);
-        
+
         for (i=0; i<list_logos.length; i++){
-          chart.navItems[i].navigateFunction = function() { 
-          swal({title: "ODD1", 
-                text: "Votre territoire a un taux d'emploi de 75 %, tandis que celui de votre département est de 60 %"
-        })
+          var my_i = i;
+          chart.navItems[my_i].navigateFunction = function() {
+          swal({title: title_alert[my_i],
+                text: text_alert[my_i]
+        });
         }
         }
-        
-        
+
+
         chart.createWheel();
         subchart.createWheel();
-        
-        
+
+
         //el.innerText = "ODDDDO";
         // el.wheel = wheel_new;
       },
