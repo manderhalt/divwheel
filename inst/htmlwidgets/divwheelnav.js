@@ -95,7 +95,9 @@ HTMLWidgets.widget({
         }
         for (i=0; i<list_logos.length; i++){
           var my_i = i;
+          if (text_alert[my_i] !== ""){
           chart.navItems[my_i].navigateFunction = get_alert_function(title_alert[my_i], text_alert[my_i]);
+          }
         }
 
 
