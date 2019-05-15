@@ -23,7 +23,7 @@ HTMLWidgets.widget({
         var text_alert = x.text_alert;
         function get_logos(y){
           if (y !== ""){
-          var directory_logo = "imgsrc:./"+y+".jpg";
+          var directory_logo = "imgsrc:./"+y+".png";
           return directory_logo;
           }
           else {
@@ -83,8 +83,6 @@ HTMLWidgets.widget({
         subchart.spreaderRadius= 85;
         subchart.clickModeRotate= false;
         subchart.clockwise=false;
-        subchart.markerPathFunction = markerPath().PieLineMarker;
-        subchart.markerEnable = true;
         subchart.colors = colorpalette;
 
         chart.initWheel(wheeldata);
