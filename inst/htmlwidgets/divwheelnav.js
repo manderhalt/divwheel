@@ -69,6 +69,7 @@ HTMLWidgets.widget({
         chart.sliceSelectedPathCustom = chart.slicePathCustom;
         chart.sliceInitPathCustom = chart.slicePathCustom;
         chart.clickModeRotate = false;
+        chart.hoverEnable = false;
         chart.sliceTransformFunction  = sliceTransform().MoveMiddleTransform;
         chart.colors = logos_colors;
 
