@@ -94,7 +94,8 @@ HTMLWidgets.widget({
         function get_alert_function(title, text) {
           return function(){
             swal({title: title,
-                text: text
+                text: text,
+                imageUrl:title+".png"
         });
           };
         }
