@@ -40,7 +40,7 @@ HTMLWidgets.widget({
           var green = "#2D9E46";
           var red = "#D63C22";
           var blue = "#B0E0E6";
-          var white = "#FFFFFF";
+          var white = null;
           if (y===0){
             return red;
           }
@@ -70,7 +70,7 @@ HTMLWidgets.widget({
         chart.sliceInitPathCustom = chart.slicePathCustom;
         chart.clickModeRotate = false;
         chart.hoverEnable = false;
-        chart.sliceTransformFunction = sliceTransform().ScaleTitleTransform;
+        chart.titleRotateAngle = 0;
         chart.sliceTransformFunction  = sliceTransform().MoveMiddleTransform;
         chart.colors = logos_colors;
 
@@ -88,9 +88,7 @@ HTMLWidgets.widget({
         subchart.colors = colorpalette;
 
         chart.initWheel(wheeldata);
-        for (i=0; i<list_logos.length; i++){
-          chart.navItems[i].titleRotateAngle = -(360/list_logos.lenght)*i;
-        }
+
         subchart.initWheel(subwheeldata);
         function get_alert_function(title, text) {
           return function(){
