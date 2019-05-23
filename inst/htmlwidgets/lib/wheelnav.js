@@ -1,4 +1,4 @@
-﻿///#source 1 1 /js/source/wheelnav.core.js
+///#source 1 1 /js/source/wheelnav.core.js
 /* ======================================================================================= */
 /*                                   wheelnav.js - v1.7.1                                  */
 /* ======================================================================================= */
@@ -33,7 +33,7 @@ wheelnav = function (divId, raphael, divWidth, divHeight) {
         raphael === null)) {
         return this;
     }
-    
+
     //Prepare raphael object and set the width
     var canvasWidth;
     var clearContent = true;
@@ -108,7 +108,7 @@ wheelnav = function (divId, raphael, divWidth, divHeight) {
     this.animateFinishFunction = null;
 
     // These settings are useful when navItem.sliceAngle < 360 / this.navItemCount
-    this.navItemsContinuous = false; 
+    this.navItemsContinuous = false;
     this.navItemsCentered = true; // This is reasoned when this.navItemsContinuous = false;
 
     this.colors = colorpalette.defaultpalette;
@@ -153,7 +153,7 @@ wheelnav = function (divId, raphael, divWidth, divHeight) {
     this.slicePathAttr = null;
     this.sliceHoverAttr = null;
     this.sliceSelectedAttr = null;
-    
+
     this.titleFont = '100 24px Impact, Charcoal, sans-serif';
     this.titleAttr = null;
     this.titleHoverAttr = null;
@@ -485,7 +485,7 @@ wheelnav.prototype.spreadWheel = function () {
 
 wheelnav.prototype.animateUnlock = function (force, withFinishFunction) {
 
-    if (force !== undefined && 
+    if (force !== undefined &&
         force === true) {
         for (var f = 0; f < this.navItemCount; f++) {
             this.navItems[f].navSliceUnderAnimation = false;
@@ -798,7 +798,7 @@ wheelnavItem = function (wheelnav, title, itemIndex) {
 
     this.setTitle(title);
     this.tooltip = null;
-    
+
     //Default settings
     this.fillAttr = "#CCC";
     this.titleFont = this.wheelnav.titleFont;
@@ -997,7 +997,7 @@ wheelnavItem.prototype.createNavItem = function () {
     this.navSlice.attr({ transform: this.navSliceCurrentTransformString });
     this.navLine.attr({ transform: this.navLineCurrentTransformString });
     this.navTitle.attr({ transform: this.navTitleCurrentTransformString });
-    
+
     //Create item set
     this.navItem = this.wheelnav.raphael.set();
 
@@ -1007,7 +1007,7 @@ wheelnavItem.prototype.createNavItem = function () {
         this.navClickableSlice = this.wheelnav.raphael.path(sliceClickablePath.slicePathString).attr(this.sliceClickablePathAttr).toBack();
         this.navClickableSlice.id = this.wheelnav.getClickableSliceId(this.wheelItemIndex);
         this.navClickableSlice.node.id = this.navClickableSlice.id;
-        
+
         this.navItem.push(
             this.navSlice,
             this.navLine,
@@ -1338,7 +1338,7 @@ wheelnavItem.prototype.refreshNavItem = function (withPathAndTransform) {
         this.navLine.toBack();
         this.navSlice.toBack();
     }
-    
+
     if (withPathAndTransform !== undefined &&
         withPathAndTransform === true) {
         this.initPathsAndTransforms();
@@ -1352,7 +1352,7 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
     if (this.wheelnav.slicePathAttr !== null) { this.slicePathAttr = JSON.parse(JSON.stringify(this.wheelnav.slicePathAttr)); }
     if (this.wheelnav.sliceHoverAttr !== null) { this.sliceHoverAttr = JSON.parse(JSON.stringify(this.wheelnav.sliceHoverAttr)); }
     if (this.wheelnav.sliceSelectedAttr !== null) { this.sliceSelectedAttr = JSON.parse(JSON.stringify(this.wheelnav.sliceSelectedAttr)); }
-    
+
     //Set title from wheelnav
     if (this.wheelnav.titleAttr !== null) { this.titleAttr = JSON.parse(JSON.stringify(this.wheelnav.titleAttr)); }
     if (this.wheelnav.titleHoverAttr !== null) { this.titleHoverAttr = JSON.parse(JSON.stringify(this.wheelnav.titleHoverAttr)); }
@@ -1366,8 +1366,8 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
     if (this.titleWidth === null && this.titleHeight !== null) { this.titleWidth = this.titleHeight; }
     if (wheelnavTitle().isImageTitle(this.title)) {
         // Image default value
-        if (this.titleWidth === null) { this.titleWidth = 32; }
-        if (this.titleHeight === null) { this.titleHeight = 32; }
+        if (this.titleWidth === null) { this.titleWidth = 50; }
+        if (this.titleHeight === null) { this.titleHeight = 50; }
     }
 
     if (this.wheelnav.titleHoverWidth !== null && this.titleHoverWidth === null) { this.titleHoverWidth = this.wheelnav.titleHoverWidth; }
@@ -1406,7 +1406,7 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
         if (this.slicePathFunction === null || force) { this.slicePathFunction = this.wheelnav.slicePathFunction; }
         if (this.sliceSelectedPathFunction === null || force) { this.sliceSelectedPathFunction = this.wheelnav.sliceSelectedPathFunction; }
         if (this.sliceHoverPathFunction === null || force) { this.sliceHoverPathFunction = this.wheelnav.sliceHoverPathFunction; }
-            
+
         if (this.sliceTransformFunction === null || force) { this.sliceTransformFunction = this.wheelnav.sliceTransformFunction; }
         if (this.sliceSelectedTransformFunction === null || force) { this.sliceSelectedTransformFunction = this.wheelnav.sliceSelectedTransformFunction; }
         if (this.sliceHoverTransformFunction === null || force) { this.sliceHoverTransformFunction = this.wheelnav.sliceHoverTransformFunction; }
@@ -1502,7 +1502,7 @@ wheelnavItem.prototype.initPathsAndTransforms = function () {
     }
 
     //Set min/max sliececlickablePaths
-    
+
     if (this.sliceClickablePathFunction !== null) {
         //Default - min
         this.clickableSlicePathMin = this.sliceClickablePathFunction(this.sliceHelper, this.clickablePercentMin, this.sliceClickablePathCustom);
@@ -2122,7 +2122,7 @@ this.PieSlice = function (helper, percent, custom) {
                  helper.ArcTo(arcRadius, helper.middleAngle, arcBaseRadius),
                  helper.ArcTo(arcRadius, helper.endAngle, arcBaseRadius),
                  helper.Close()];
-    
+
     return {
         slicePathString: slicePathString,
         linePathString: "",
@@ -2170,7 +2170,7 @@ this.PieArrowSlice = function (helper, percent, custom) {
     helper.setBaseValue(percent, custom);
 
     r = helper.sliceRadius;
-    
+
     arrowAngleStart = helper.startAngle + helper.sliceAngle * 0.45;
     arrowAngleEnd = helper.startAngle + helper.sliceAngle * 0.55;
 
@@ -3115,7 +3115,7 @@ spreader = function (wheelnav) {
         if (this.wheelnav.animatetime !== null) { this.animatetime = this.wheelnav.animatetime; }
 
         if (this.wheelnav.spreaderTitleFont !== null) { this.fontAttr = { font: this.wheelnav.spreaderTitleFont }; }
-        else { this.fontAttr = { font: '100 32px Impact, Charcoal, sans-serif' }; }
+        else { this.fontAttr = { font: '100 50px Impact, Charcoal, sans-serif' }; }
 
         this.spreaderPathIn = this.wheelnav.spreaderPathFunction(this.spreaderHelper, this.wheelnav.spreaderInPercent, this.wheelnav.spreaderPathCustom);
         this.spreaderPathOut = this.wheelnav.spreaderPathFunction(this.spreaderHelper, this.wheelnav.spreaderOutPercent, this.wheelnav.spreaderPathCustom);
@@ -3146,10 +3146,10 @@ spreader = function (wheelnav) {
 
         if (wheelnavTitle().isImageTitle(this.wheelnav.spreaderOutTitle)) {
             // Image default value
-            if (this.inTitleWidth === null) { this.inTitleWidth = 32; }
-            if (this.inTitleHeight === null) { this.inTitleHeight = 32; }
-            if (this.outTitleWidth === null) { this.outTitleWidth = 32; }
-            if (this.outTitleHeight === null) { this.outTitleHeight = 32; }
+            if (this.inTitleWidth === null) { this.inTitleWidth = 50; }
+            if (this.inTitleHeight === null) { this.inTitleHeight = 50; }
+            if (this.outTitleWidth === null) { this.outTitleWidth = 50; }
+            if (this.outTitleHeight === null) { this.outTitleHeight = 50; }
         }
 
         if (wheelnavTitle().isPathTitle(this.wheelnav.spreaderInTitle)) {
@@ -3192,7 +3192,7 @@ spreader = function (wheelnav) {
         else {
             this.spreaderTitle = thisWheelNav.raphael.text(currentPath.titlePosX, currentPath.titlePosY, currentTitle.title);
         }
-        
+
         this.spreaderTitle.attr(this.fontAttr);
         this.spreaderTitle.attr(currentTitleAttr);
         this.spreaderTitle.attr({ transform: currentTitleSizeTransform });
@@ -3213,7 +3213,7 @@ spreader.prototype.setCurrentTransform = function (withoutAnimate) {
 
         if (withoutAnimate === undefined ||
             withoutAnimate === false) {
-            
+
             if (this.wheelnav.currentPercent > this.wheelnav.minPercent) {
                 currentPath = this.spreaderPathOut.spreaderPathString;
             }
@@ -3477,7 +3477,7 @@ this.FlowerSpreader = function (helper, percent, custom) {
     else {
         spreaderPathString.push(helper.MoveTo(helper.startAngle + (helper.navAngle + sliceAngle / 2), rbase));
     }
-    
+
     for (var i = 0; i < helper.navItemCount; i++) {
         startAngle = i * sliceAngle + (baseAngle + sliceAngle / 2);
         middleAngle = startAngle + (sliceAngle / 2);
@@ -3747,7 +3747,7 @@ this.TriangleMarker = function (helper, percent, custom) {
                  helper.LineTo(startAngle, arcRadius),
                  helper.LineTo(endAngle, arcRadius),
                  helper.Close()];
-    
+
     return {
         markerPathString: markerPathString,
         titlePosX: helper.titlePosX,
@@ -3833,7 +3833,7 @@ this.MenuMarker = function (helper, percent, custom) {
                 ["A", menuRadius, menuRadius, 0, 0, 1, helper.titlePosX + (menuRadius * Math.cos(middleTheta)), helper.titlePosY + (menuRadius * Math.sin(middleTheta))],
                 ["A", menuRadius, menuRadius, 0, 0, 1, helper.titlePosX - (menuRadius * Math.cos(middleTheta)), helper.titlePosY - (menuRadius * Math.sin(middleTheta))],
                 ["z"]];
-    
+
     return {
         markerPathString: markerPathString,
         titlePosX: helper.titlePosX,
@@ -3867,7 +3867,7 @@ this.LineMarker = function (helper, percent, custom) {
     markerPathString = [helper.MoveTo(helper.navAngle, arcBaseRadius),
                  helper.LineTo(helper.navAngle, arcRadius),
                  helper.Close()];
-    
+
     return {
         markerPathString: markerPathString,
         titlePosX: helper.titlePosX,

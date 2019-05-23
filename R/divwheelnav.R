@@ -49,7 +49,7 @@ divwheelnav <- function(question_answer, logos, colors_logos, title_alert, text_
 #' @name divwheelnav-shiny
 #'
 #' @export
-divwheelnavOutput <- function(outputId, width = '100%', height = '400px'){
+divwheelnavOutput <- function(outputId, width = '100%', height = '900px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'divwheelnav', width, height, package = 'divwheel')
 }
 

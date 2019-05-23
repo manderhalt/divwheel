@@ -1,4 +1,4 @@
-﻿/* ======================================================================================= */
+/* ======================================================================================= */
 /* Navigation item                                                                         */
 /* ======================================================================================= */
 /* ======================================================================================= */
@@ -40,7 +40,7 @@ wheelnavItem = function (wheelnav, title, itemIndex) {
 
     this.setTitle(title);
     this.tooltip = null;
-    
+
     //Default settings
     this.fillAttr = "#CCC";
     this.titleFont = this.wheelnav.titleFont;
@@ -273,7 +273,7 @@ wheelnavItem.prototype.createNavItem = function () {
         this.navClickableSlice = this.wheelnav.raphael.path(sliceClickablePath.slicePathString).attr(this.sliceClickablePathAttr).toBack();
         this.navClickableSlice.id = this.wheelnav.getClickableSliceId(this.wheelItemIndex);
         this.navClickableSlice.node.id = this.navClickableSlice.id;
-        
+
         this.navItem.push(
             this.navSlice,
             this.navLine,
@@ -330,7 +330,7 @@ wheelnavItem.prototype.addCurvedTitle = function (text) {
         this.sliceHelper.titleRadius = this.wheelnav.wheelRadius * 0.63;
         pathString = this.sliceHelper.getCurvedTitlePathString();
     }
- 
+
     this.navTitle.node.id = this.wheelnav.getTitleId(this.wheelItemIndex);
     var pathid = this.wheelnav.getTitlePathId(this.wheelItemIndex);
     this.navTitlePath = this.wheelnav.raphael.path(pathString);
@@ -675,7 +675,7 @@ wheelnavItem.prototype.refreshNavItem = function (withPathAndTransform) {
         this.navLine.toBack();
         this.navSlice.toBack();
     }
-    
+
     if (withPathAndTransform !== undefined &&
         withPathAndTransform === true) {
         this.initPathsAndTransforms();
@@ -689,7 +689,7 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
     if (this.wheelnav.slicePathAttr !== null) { this.slicePathAttr = JSON.parse(JSON.stringify(this.wheelnav.slicePathAttr)); }
     if (this.wheelnav.sliceHoverAttr !== null) { this.sliceHoverAttr = JSON.parse(JSON.stringify(this.wheelnav.sliceHoverAttr)); }
     if (this.wheelnav.sliceSelectedAttr !== null) { this.sliceSelectedAttr = JSON.parse(JSON.stringify(this.wheelnav.sliceSelectedAttr)); }
-    
+
     //Set title from wheelnav
     if (this.wheelnav.titleAttr !== null) { this.titleAttr = JSON.parse(JSON.stringify(this.wheelnav.titleAttr)); }
     if (this.wheelnav.titleHoverAttr !== null) { this.titleHoverAttr = JSON.parse(JSON.stringify(this.wheelnav.titleHoverAttr)); }
@@ -707,8 +707,8 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
     if (this.titleWidth === null && this.titleHeight !== null) { this.titleWidth = this.titleHeight; }
     if (wheelnavTitle().isImageTitle(this.title)) {
         // Image default value
-        if (this.titleWidth === null) { this.titleWidth = 32; }
-        if (this.titleHeight === null) { this.titleHeight = 32; }
+        if (this.titleWidth === null) { this.titleWidth = 50; }
+        if (this.titleHeight === null) { this.titleHeight = 50; }
     }
 
     if (this.wheelnav.titleHoverWidth !== null && this.titleHoverWidth === null) { this.titleHoverWidth = this.wheelnav.titleHoverWidth; }
@@ -747,7 +747,7 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
         if (this.slicePathFunction === null || force) { this.slicePathFunction = this.wheelnav.slicePathFunction; }
         if (this.sliceSelectedPathFunction === null || force) { this.sliceSelectedPathFunction = this.wheelnav.sliceSelectedPathFunction; }
         if (this.sliceHoverPathFunction === null || force) { this.sliceHoverPathFunction = this.wheelnav.sliceHoverPathFunction; }
-            
+
         if (this.sliceTransformFunction === null || force) { this.sliceTransformFunction = this.wheelnav.sliceTransformFunction; }
         if (this.sliceSelectedTransformFunction === null || force) { this.sliceSelectedTransformFunction = this.wheelnav.sliceSelectedTransformFunction; }
         if (this.sliceHoverTransformFunction === null || force) { this.sliceHoverTransformFunction = this.wheelnav.sliceHoverTransformFunction; }
@@ -803,7 +803,7 @@ wheelnavItem.prototype.initPathsAndTransforms = function () {
     this.sliceHelper.sliceAngle = this.sliceAngle;
     this.sliceHelper.itemIndex = this.itemIndex;
     this.sliceHelper.titleCurvedClockwise = this.titleCurvedClockwise;
-    
+
     //Set min/max sliecePaths
     //Default - min
     this.slicePathMin = this.slicePathFunction(this.sliceHelper, this.minPercent, this.slicePathCustom);
@@ -844,7 +844,7 @@ wheelnavItem.prototype.initPathsAndTransforms = function () {
     }
 
     //Set min/max sliececlickablePaths
-    
+
     if (this.sliceClickablePathFunction !== null) {
         //Default - min
         this.clickableSlicePathMin = this.sliceClickablePathFunction(this.sliceHelper, this.clickablePercentMin, this.sliceClickablePathCustom);
