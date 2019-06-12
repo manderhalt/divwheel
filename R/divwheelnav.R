@@ -24,7 +24,6 @@ divwheelnav <- function(question_answer, logos, colors_logos, title_alert, text_
     height = height,
     sizingPolicy = htmlwidgets::sizingPolicy(
       viewer.padding = 0,
-      viewer.paneHeight = 1000,
       browser.fill = TRUE
     ),
     package = 'divwheel',
@@ -49,7 +48,7 @@ divwheelnav <- function(question_answer, logos, colors_logos, title_alert, text_
 #' @name divwheelnav-shiny
 #'
 #' @export
-divwheelnavOutput <- function(outputId, width = '100%', height = '900px'){
+divwheelnavOutput <- function(outputId, width = '100%', height = '2000px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'divwheelnav', width, height, package = 'divwheel')
 }
 
