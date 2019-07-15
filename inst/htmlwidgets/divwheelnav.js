@@ -23,7 +23,7 @@ HTMLWidgets.widget({
         var text_alert = x.text_alert;
         function get_logos(y){
           if (y !== ""){
-          var directory_logo = "imgsrc:./"+y+".png";
+          var directory_logo = "imgsrc:./wheel_icon/"+y+".png";
           return directory_logo;
           }
           else {
