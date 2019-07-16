@@ -707,8 +707,8 @@ wheelnavItem.prototype.setWheelSettings = function (force) {
     if (this.titleWidth === null && this.titleHeight !== null) { this.titleWidth = this.titleHeight; }
     if (wheelnavTitle().isImageTitle(this.title)) {
         // Image default value
-        if (this.titleWidth === null) { this.titleWidth = 50; }
-        if (this.titleHeight === null) { this.titleHeight = 50; }
+        if (this.titleWidth === null) { this.titleWidth = 75; }
+        if (this.titleHeight === null) { this.titleHeight = 75; }
     }
 
     if (this.wheelnav.titleHoverWidth !== null && this.titleHoverWidth === null) { this.titleHoverWidth = this.wheelnav.titleHoverWidth; }
