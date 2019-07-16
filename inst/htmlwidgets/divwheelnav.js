@@ -71,7 +71,6 @@ HTMLWidgets.widget({
         chart.clickModeRotate = false;
         chart.hoverEnable = false;
         chart.titleRotateAngle = 0;
-        chart.sliceTransformFunction  = sliceTransform().MoveMiddleTransform;
         chart.colors = logos_colors;
 
         subchart.slicePathFunction = slicePath().DonutSlice;
