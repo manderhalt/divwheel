@@ -16,6 +16,7 @@ HTMLWidgets.widget({
 
         // create a wheelnav and set options
         // note that via the c3.js API we bind the chart to the element with id equal to chart1
+        var imgwidth = x.imgwidth;
         var qa = x.question_answer;
         var list_logos = x.logos;
         var logos_colors = x.colors_logos;
@@ -71,6 +72,8 @@ HTMLWidgets.widget({
         chart.clickModeRotate = false;
         chart.hoverEnable = false;
         chart.titleRotateAngle = 0;
+        chart.titleWidth = imgwidth;
+        chart.titleHeight = imgwidth;
         chart.colors = logos_colors;
 
         subchart.slicePathFunction = slicePath().DonutSlice;
