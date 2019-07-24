@@ -61,7 +61,6 @@ HTMLWidgets.widget({
           colorpalette.push(color(qa[i]));
         }
         // var wheel_new = new wheelnav("divwheelnav");
-        chart.clockwise = false;
         chart.wheelRadius = width/3;
         chart.slicePathFunction = slicePath().DonutSlice;
         chart.slicePathCustom = slicePath().DonutSliceCustomization();
@@ -74,6 +73,7 @@ HTMLWidgets.widget({
         chart.titleRotateAngle = 0;
         chart.titleWidth = imgwidth;
         chart.titleHeight = imgwidth;
+        chart.navAngle = 270;
         chart.colors = logos_colors;
 
         subchart.slicePathFunction = slicePath().DonutSlice;
@@ -85,8 +85,8 @@ HTMLWidgets.widget({
         subchart.sliceInitPathCustom = subchart.slicePathCustom;
         subchart.sliceTransformFunction  = sliceTransform().MoveMiddleTransform;
         subchart.spreaderRadius= 85;
+        subchart.navAngle = 270;
         subchart.clickModeRotate= false;
-        subchart.clockwise=false;
         subchart.colors = colorpalette;
 
         chart.initWheel(wheeldata);
